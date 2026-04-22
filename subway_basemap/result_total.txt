@@ -12,3 +12,13 @@ SUBWAY SERVICE
 LOW-INCOME ACCESS
 • Low-income population served by subway: 20,772 (5.7%)
 • Low-income population with green access: 10,508 (2.9%)
+
+
+
+W13 more analysis:
+Subway-served tracts: 52
+
+BUS SERVICE AREA SUMMARY(within subway-served tracts)
+Bus-accessible green space: 0.41 km²
+Population served: 24,297
+Poor population served: 6,485

@@ -1,0 +1,11 @@
+BUS SERVICE AREA SUMMARY
+
+400m Buffer
+
+Total Bus stops: 971
+
+Total green area: 69.40 km²
+
+Accessible green area: 10.75 km²
+
+Accessible share: 15.5%
