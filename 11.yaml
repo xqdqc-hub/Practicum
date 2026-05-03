@@ -1,0 +1,40 @@
+# HTTP 代理监听端口（Clash 运行后，系统代理或浏览器指向这个端口）
+port: 7890
+# SOCKS5 代理监听端口
+socks-port: 7891
+# 允许局域网连接（如需要手机/其他设备共用代理可开）
+allow-lan: false
+# 运行模式：rule（按规则路由）/ global（全局代理）/ direct（直连）
+mode: rule
+# 日志级别：silent / info / warning / error / debug
+log-level: info
+# 外部控制（可选）
+external-controller: 127.0.0.1:9090
+
+# ========= 代理节点定义 =========
+proxies:
+  - name: "🇨🇳 TW SS-02 | free-nodes"   # 节点名称（与你提供的保持一致）
+    type: ss
+    server: nbmrcg0034686rw.cybervena.com
+    port: 50099
+    cipher: chacha20-ietf-poly1305
+    password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
+    # udp: true   # 可开启 UDP 转发（视需要）
+
+# ========= 代理组（策略组） =========
+proxy-groups:
+  - name: "PROXY"
+    type: select          # 手动选择策略组
+    proxies:
+      - "🇨🇳 TW SS-02 | free-nodes"
+      - DIRECT            # 直连（不代理）
+
+# ========= 路由规则 =========
+rules:
+  # 局域网/内网地址直连
+  - "DOMAIN-SUFFIX,local,DIRECT"
+  - "IP-CIDR,127.0.0.0/8,DIRECT"
+  - "IP-CIDR,172.16.0.0/12,DIRECT"
+  - "IP-CIDR,192.168.0.0/16,DIRECT"
+  # 默认规则：所有流量走 PROXY 策略组（即你手动选择节点或直连）
+  - "MATCH,PROXY"
